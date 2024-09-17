@@ -129,3 +129,20 @@ o	For each unvisited neighbor of the current node, recursively call DFS on that 
 
 
 Colour mapping
+Initialization:
+Create a data structure (e.g., a list) to store the color assigned to each node. Initially, no colors are assigned (e.g., all values are 0).
+Choose the number of colors m to use for coloring the map.
+Define a Function to Check Validity:
+Create a function is_safe(node, color) that checks whether it is safe to assign a particular color to node.
+The function ensures that none of the node’s neighbors (connected nodes) have the same color.
+Backtracking Algorithm to Assign Colors:
+Start at the first node.
+For each node, try assigning each color from 1 to m.
+Check if the Color is Valid: Use the is_safe function to check whether the color can be assigned to the current node without conflict.
+Recursive Call: If the color is valid, assign it to the node and recursively call the function for the next node.
+Backtrack: If assigning a color to a node leads to a conflict later, reset the color of the current node (backtrack) and try a different color.
+If all nodes are colored successfully, return the color assignments. If no solution is possible, backtrack to the previous node and try again.
+Termination:
+The algorithm terminates when either:
+All nodes are successfully assigned colors (in which case, a valid coloring is found).
+No valid color assignments are possible, meaning the map cannot be colored with the given number of colors.
