@@ -128,7 +128,7 @@ o	For each unvisited neighbor of the current node, recursively call DFS on that 
 •	The recursion ends when all reachable nodes from the starting node have been visited.
 
 
-Colour mapping
+Colour mapping:
 Initialization:
 Create a data structure (e.g., a list) to store the color assigned to each node. Initially, no colors are assigned (e.g., all values are 0).
 Choose the number of colors m to use for coloring the map.
@@ -146,3 +146,44 @@ Termination:
 The algorithm terminates when either:
 All nodes are successfully assigned colors (in which case, a valid coloring is found).
 No valid color assignments are possible, meaning the map cannot be colored with the given number of colors.
+
+
+Travelling salesman:
+1.Define the Problem:
+•	Given a list of cities and a distance matrix, calculate all possible paths that start from one city, visit all other cities exactly once, and return to the starting city.
+2.Generate Permutations:
+•	Generate all possible permutations of the cities.
+3.Calculate the Path Distance:
+•	For each permutation (tour), calculate the total distance by summing the distances between consecutive cities in the permutation, including the distance back to the starting city.
+4.Select the Shortest Path:
+•	Keep track of the permutation that gives the minimum distance.
+5.Return the Shortest Path:
+•	After all permutations are checked, return the path with the minimum distance.
+
+
+Tic tac toe:
+1.Initialize the Game Board:
+o	Create a 3x3 grid (usually represented by a 2D list or array) where each cell can be empty, "X", or "O".
+o	The board starts with all cells empty.
+2.Choose Starting Player:
+o	Decide which player will go first (Player 1 as "X" and Player 2 as "O").
+3.Loop Through Player Turns:
+o	Player Input: On each turn, the current player selects an empty cell to place their mark ("X" or "O").
+o	Validate Input: Ensure that the selected cell is empty. If it is not, ask the player to pick another cell.
+4.Update the Board:
+o	Place the current player's mark ("X" or "O") on the chosen cell.
+5.Check for a Winner:
+o	After each move, check if the current player has won the game by:
+	Checking all rows to see if any row has the same mark.
+	Checking all columns to see if any column has the same mark.
+	Checking both diagonals to see if either diagonal has the same mark.
+6.Check for a Draw:
+o	If no player wins and all cells are filled, the game is a draw.
+7.Switch Players:
+o	Switch to the other player after each valid move.
+8.Repeat Steps 3-7 Until the Game Ends:
+o	The game ends when there is a winner or when there is a draw.
+9.Announce Result:
+o	Announce the winner or declare a draw.
+
+
