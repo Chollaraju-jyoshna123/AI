@@ -148,6 +148,8 @@ All nodes are successfully assigned colors (in which case, a valid coloring is f
 No valid color assignments are possible, meaning the map cannot be colored with the given number of colors.
 
 
+Breadth first search:
+
 Travelling salesman:
 1.Define the Problem:
 •	Given a list of cities and a distance matrix, calculate all possible paths that start from one city, visit all other cities exactly once, and return to the starting city.
