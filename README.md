@@ -561,3 +561,18 @@ STEP 4:Move in a specific pattern (e.g., zig-zag) to ensure coverage.
 STEP 5:Use a combination of both strategies for optimal cleaning.
 STEP 6:Move: Move the vacuum cleaner to the chosen cell.
 STEP 7:Repeat: Go back to step 2 until all cells are clean.
+
+
+Sum of integers:
+1. Define a base case: The sum of integers from 1 to 1 is 1.
+2. Define a recursive rule: The sum of integers from 1 to n is n plus the sum of integers from 1 to n-1.
+
+
+DOB:
+1. Define the database using Prolog facts. Each fact will have the structure `person(Name, DOB)`.
+2. Define a predicate to query the DOB of a specific individual. This predicate will search for a person's DOB in the database based on their name.
+
+
+Student-teacher:
+1. Define the database using Prolog facts for students, teachers, and subjects. Each fact will have the structure `entity(Name, Code)`.
+2. Define a predicate to query the subjects taught by a specific teacher. This predicate will search for subjects based on the teacher's name.
