@@ -149,6 +149,26 @@ No valid color assignments are possible, meaning the map cannot be colored with 
 
 
 Breadth first search:
+1.Initialize Data Structures:
+Queue (FIFO): This data structure stores the nodes to be explored. The first node inserted is the first one processed (FIFO - First In, First Out).
+Visited Set: A set to track which nodes have been visited to avoid revisiting them.
+Parent/Predecessor (Optional): This can be used to reconstruct the path.
+2.Start at the Given Node:
+Enqueue the starting node into the queue.
+Mark the starting node as visited.
+3.Begin BFS Loop:
+While the queue is not empty:
+Dequeue a node from the front of the queue. Let this node be the current node.
+4.Process the Current Node (Optional):
+If there is any specific task to be done at the node (e.g., check a condition, print the node), perform it here.
+5.Explore the Neighbors:
+For each neighbor of the current node:
+If the neighbor has not been visited:
+Mark it as visited (add it to the visited set).
+Enqueue the neighbor into the queue.
+6.End the Loop When the Queue is Empty:
+When the queue is empty, all reachable nodes from the start node have been visited, and the algorithm terminates.
+
 
 Travelling salesman:
 1.Define the Problem:
@@ -433,3 +453,111 @@ If training the model, use the backpropagation algorithm to compute the gradient
 Update the weights and biases using an optimization algorithm like Stochastic Gradient Descent (SGD) or Adam.
 Repeat:
 Repeat steps 2-6 for multiple iterations (epochs) or until the model converges (loss stabilizes or decreases to a satisfactory level).
+
+Missionaries:
+1. Define the State Representation:
+A state is represented as a tuple: (M, C, B) where:
+M is the number of missionaries on the left bank.
+C is the number of cannibals on the left bank.
+B is the position of the boat: 0 for left bank, 1 for right bank.
+The goal state is (0, 0, 1) where all missionaries and cannibals have safely crossed to the right bank.
+2. Define Valid Moves (Transitions):
+There are five possible valid moves for each boat trip:
+Move 1 missionary and 1 cannibal.
+Move 2 missionaries.
+Move 2 cannibals.
+Move 1 missionary.
+Move 1 cannibal.
+3. Check Validity of a State:
+A state is valid if the following conditions are satisfied:
+The number of missionaries and cannibals on each bank must be non-negative and must not exceed 3.
+On either bank, missionaries should never be outnumbered by cannibals unless there are no missionaries on that side. Specifically:
+𝑀
+left
+≥
+𝐶
+left
+M 
+left
+​
+ ≥C 
+left
+​
+  or 
+𝑀
+left
+=
+0
+M 
+left
+​
+ =0.
+𝑀
+right
+≥
+𝐶
+right
+M 
+right
+​
+ ≥C 
+right
+​
+  or 
+𝑀
+right
+=
+0
+M 
+right
+​
+ =0.
+4. Breadth-First Search (BFS) to Explore Possible States:
+Use BFS to explore the state space and find the sequence of valid moves to transport all missionaries and cannibals across the river safely.
+Start with the initial state (3, 3, 0) and explore each possible move from the current state.
+Track visited states to avoid revisiting the same state.
+5. Generate Successor States:
+From any given state (M, C, B), generate all possible successor states by applying each valid move.
+After generating a new state, validate it to ensure it adheres to the problem's rules.
+6. Track and Return the Path:
+Use a queue to explore all possible states. Track the path taken to reach each state.
+When the goal state (0, 0, 1) is reached, return the path that leads to it.
+Algorithm in Steps:
+Initialize the Starting State:
+Start from the state (3, 3, 0) where all missionaries, cannibals, and the boat are on the left bank.
+Initialize the Queue and Visited Set:
+Enqueue the starting state into a queue.
+Use a visited set to track the states that have been explored.
+BFS Exploration Loop:
+While the queue is not empty:
+Dequeue a state (M, C, B) from the front of the queue.
+If the state is the goal state (0, 0, 1), return the path that led to this state.
+Generate all possible successor states by applying the valid moves.
+For each successor state:
+If the state is valid and has not been visited yet:
+Enqueue the state.
+Mark it as visited.
+Check the Goal State:
+If the state reaches (0, 0, 1), where all missionaries and cannibals have safely crossed to the right bank, the problem is solved.
+Repeat Until Goal State is Found:
+The BFS algorithm ensures that the shortest sequence of moves is found.
+
+
+8-puzzle:
+ STEP1:State Representation: Represent the puzzle as a 3x3 grid, where each cell contains a number (1-8) or is empty (0).
+ STEP2: Node Representation: Each node in the search tree represents a state of the puzzle. It contains the current state, the previous state (parent), the move that led to this state, and the cost (usually the sum of the path cost and a heuristic estimate).
+ STEP 3:Heuristic Function: Choose a heuristic function that estimates the cost from the current state to the goal state. A common heuristic for the 8-puzzle is the Manhattan distance, which is the sum of the horizontal and vertical distances of each tile to its correct position.
+STEP4: Priority Queue: Use a priority queue (e.g., a min-heap) to store nodes during the search. Nodes are dequeued based on their total cost (p222ath cost + heuristic cost).
+STEP5: A Algorithm*: a. Initialize the priority queue with the initial state. b. While the priority queue is not empty: i. Dequeue the node with the lowest total cost. ii. If the current state is the goal state, the solution is found. iii. Generate successor states by moving the empty space in all possible directions (up, down, left, right). iv. For each successor state: - Calculate the cost (path cost + heuristic cost).
+STEP 6:Solution Extraction: Once the goal state is reached, follow the parent pointers from the goal node to the initial node to extract the sequence of moves that lead to the solution.
+
+
+Vacuum cleaner:
+STEP1: Initialize: Start at a given position on the grid.
+STEP 2:Check and Clean: If the current cell is dirty, clean it.
+STEP 3:Move Decision: Choose the next cell to move to. Options include:
+Move to the nearest dirty cell.
+STEP 4:Move in a specific pattern (e.g., zig-zag) to ensure coverage.
+STEP 5:Use a combination of both strategies for optimal cleaning.
+STEP 6:Move: Move the vacuum cleaner to the chosen cell.
+STEP 7:Repeat: Go back to step 2 until all cells are clean.
